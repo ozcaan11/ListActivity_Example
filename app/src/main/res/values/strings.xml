@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">ListActivity_Example</string>
+    <string name="btn_login_misafir">Misafir olarak giriş yap</string>
+    <string name="btn_login_giris">Giriş yap</string>
+    <string name="yardim">yardım</string>
 </resources>
