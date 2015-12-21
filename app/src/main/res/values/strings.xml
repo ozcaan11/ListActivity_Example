@@ -5,4 +5,5 @@
     <string name="yardim">yardım</string>
     <string name="hint_kullanici_adi">Kullanıcı adı ..</string>
     <string name="hint_sifre">Şifre ..</string>
+    <string name="btn_anamenu_gonder">Gönder</string>
 </resources>

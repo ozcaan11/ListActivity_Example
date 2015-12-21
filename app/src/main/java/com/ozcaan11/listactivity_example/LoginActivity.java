@@ -14,7 +14,10 @@ import android.widget.Toast;
 import com.parse.LogInCallback;
 import com.parse.Parse;
 import com.parse.ParseException;
+import com.parse.ParseObject;
 import com.parse.ParseUser;
+
+import java.util.Calendar;
 
 public class LoginActivity extends AppCompatActivity {
     private Button      giris_yap,misafir_giris;
@@ -30,8 +33,6 @@ public class LoginActivity extends AppCompatActivity {
         giris_yap           = (Button)  findViewById(R.id.btn_login_giris);
         misafir_giris       = (Button)  findViewById(R.id.btn_login_misafir);
 
-        //Parse.initialize(this,your_app_id,your_client_id);
-
         giris_yap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -39,10 +40,12 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void done(ParseUser parseUser, ParseException e) {
                         if (e != null) {
-                            Toast.makeText(LoginActivity.this, " " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, "Hata" + e.getMessage(), Toast.LENGTH_SHORT).show();
                         } else {
                             ///intents
-                            Toast.makeText(LoginActivity.this, "sa", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, "Başarılı", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(LoginActivity.this,KullaniciIcinAnaMenuKayitliActivity.class);
+                            startActivity(intent);
                         }
                     }
                 });
