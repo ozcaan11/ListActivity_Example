@@ -15,7 +15,7 @@ public class StarterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_starter);
         Parse.initialize(this);
-        //Parse.initialize(this,"your_app_id","your_client_key");
+        //See AndroidManifest.xml
 
 
         Button btn = (Button)findViewById(R.id.btn_btn);
