@@ -20,7 +20,7 @@ import com.parse.ParseUser;
 import java.util.Calendar;
 
 public class LoginActivity extends AppCompatActivity {
-    private Button      giris_yap,misafir_giris;
+    private Button      giris_yap;
     private EditText    kullanici_adi,kullanici_sifresi;
 
     @Override
@@ -28,10 +28,11 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        //Parse.initialize(this);
+
         kullanici_adi       = (EditText)findViewById(R.id.editText_kullaniciadi);
         kullanici_sifresi   = (EditText)findViewById(R.id.editText_sifre);
         giris_yap           = (Button)  findViewById(R.id.btn_login_giris);
-        misafir_giris       = (Button)  findViewById(R.id.btn_login_misafir);
 
         giris_yap.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,21 +45,14 @@ public class LoginActivity extends AppCompatActivity {
                         } else {
                             ///intents
                             Toast.makeText(LoginActivity.this, "Başarılı", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(LoginActivity.this,KullaniciIcinAnaMenuKayitliActivity.class);
+                            Intent intent = new Intent(LoginActivity.this, KullaniciIcinAnaMenuKayitliActivity.class);
                             startActivity(intent);
                         }
                     }
                 });
             }
         });
-        /*****************/
-        misafir_giris.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this,MainMenuActivity.class);
-                startActivity(intent);
-            }
-        });
+
 
     }
 
@@ -74,7 +68,11 @@ public class LoginActivity extends AppCompatActivity {
             case R.id.yardim:
                 Toast.makeText(LoginActivity.this, "Help butonu sonra yapılacaktır ..", Toast.LENGTH_SHORT).show();
                 break;
+            case R.id.yeni_kullanici:
+                Toast.makeText(LoginActivity.this, "Şu an yeni kullanıcı kaydedilemiyor ..", Toast.LENGTH_SHORT).show();
+                break;
         }
         return super.onOptionsItemSelected(item);
     }
+
 }

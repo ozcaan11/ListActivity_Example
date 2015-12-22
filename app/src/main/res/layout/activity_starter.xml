@@ -9,11 +9,11 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.ozcaan11.listactivity_example.StarterActivity">
 
-    <ImageView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:id="@+id/imageView"
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:text="Giriş için tıklayınız"
+        android:id="@+id/btn_btn"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/hosgeldin" />
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

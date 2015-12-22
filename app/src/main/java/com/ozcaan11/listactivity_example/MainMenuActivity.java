@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -21,17 +22,21 @@ import com.parse.ParseUser;
 
 import java.util.List;
 
-public class MainMenuActivity extends ListActivity  {
+public class MainMenuActivity extends ListActivity {
 
     protected List<ParseObject>     mMesaj;
-    private Button                  yeni_konu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
 
+        /*if(ParseUser.getCurrentUser() == null){
+            startActivity(new Intent(this,LoginActivity.class));
+        }*/
+
         ParseQuery<ParseObject> query = new ParseQuery<>("Mesaj");
+        query.orderByDescending("createdAt");
         query.findInBackground(new FindCallback<ParseObject>() {
             @Override
             public void done(List<ParseObject> mesaj, ParseException e) {
@@ -44,15 +49,13 @@ public class MainMenuActivity extends ListActivity  {
                 }
             }
         });
-
-        yeni_konu = (Button) findViewById(R.id.btn_yeni_konu);
+        Button yeni_konu = (Button) findViewById(R.id.btn_yeni_konu);
         yeni_konu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 YeniKonu();
             }
         });
-
     }
 
     public void YeniKonu(){
@@ -83,6 +86,7 @@ public class MainMenuActivity extends ListActivity  {
             Intent intent = new Intent(MainMenuActivity.this,KullaniciIcinAnaMenuKayitliActivity.class);
             startActivity(intent);
         }
+
     }
 
     @Override
@@ -99,7 +103,6 @@ public class MainMenuActivity extends ListActivity  {
                 break;
             case R.id.yeni_konu:
                 if (ParseUser.getCurrentUser() == null){
-
                     AlertDialog.Builder builder =new AlertDialog.Builder(MainMenuActivity.this);
                     builder.setTitle("Yeni konu ekleyebilmek için giriş yapmalısınız");
 
@@ -110,16 +113,13 @@ public class MainMenuActivity extends ListActivity  {
                             startActivity(intent);
                         }
                     });
-
-                    builder.setNegativeButton("iptal", new DialogInterface.OnClickListener() {
+                    builder.setNegativeButton("İptal", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                         }
                     });
-
                     AlertDialog dialog = builder.create();
                     dialog.show();
-
                 }
                 else {
                     Intent intent = new Intent(MainMenuActivity.this,KullaniciIcinAnaMenuKayitliActivity.class);
@@ -130,9 +130,4 @@ public class MainMenuActivity extends ListActivity  {
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public void onBackPressed() {
-        this.finish();
-        super.onBackPressed();
-    }
 }

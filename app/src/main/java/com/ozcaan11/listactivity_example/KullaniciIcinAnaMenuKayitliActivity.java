@@ -1,8 +1,11 @@
 package com.ozcaan11.listactivity_example;
 
 import android.content.Intent;
+import android.media.MediaActionSound;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -31,10 +34,10 @@ public class KullaniciIcinAnaMenuKayitliActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kullanici_icin_ana_menu_kayitli);
 
-        if (ParseUser.getCurrentUser() == null){
+       /* if (ParseUser.getCurrentUser() == null){
             Intent intent = new Intent(KullaniciIcinAnaMenuKayitliActivity.this,LoginActivity.class);
             startActivity(intent);
-        }
+        }*/
 
         mesaj   = (EditText)findViewById(R.id.editText_anamenu_mesaj);
         gonder  = (Button)  findViewById(R.id.btn_anamenu_gonder);
@@ -60,5 +63,30 @@ public class KullaniciIcinAnaMenuKayitliActivity extends AppCompatActivity {
                 });
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(this, MainMenuActivity.class));
+        super.onBackPressed();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_application,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.yardim:
+                Toast.makeText(KullaniciIcinAnaMenuKayitliActivity.this, "Help sonra yapılacaktır", Toast.LENGTH_SHORT).show();
+            case R.id.cikis:
+                ParseUser.logOut();
+                Toast.makeText(KullaniciIcinAnaMenuKayitliActivity.this, "cikis yapılıyor", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this,MainMenuActivity.class));
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

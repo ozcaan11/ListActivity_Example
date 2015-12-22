@@ -10,6 +10,11 @@
     <item
         android:id="@+id/yeni_konu"
         android:title="yeni konu"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/cikis"
+        android:title="Çıkış"
         app:showAsAction="ifRoom"/>
 
 </menu>
