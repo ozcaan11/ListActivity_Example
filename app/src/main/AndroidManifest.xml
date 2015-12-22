@@ -21,10 +21,10 @@
 
         <meta-data
             android:name="com.parse.APPLICATION_ID"
-            android:value="7pNfzwVl4a9V4w407u73cOXwoaZUtAtYCp90OKxM" />
+            android:value="Your_APPLICATION_ID" />
         <meta-data
             android:name="com.parse.CLIENT_KEY"
-            android:value="8WfrhhhQgJw8aRowazcpX3vBWOt38b1rQACnJyUS" />
+            android:value="Your_CLIENT_KEY" />
 
         <activity android:name=".LoginActivity" />
         <activity android:name=".KullaniciIcinAnaMenuKayitliActivity" />
