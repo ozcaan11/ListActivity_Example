@@ -2,19 +2,20 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+
+    <item
+        android:id="@+id/yeni_konu"
+        android:title="yeni konu"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/cikis"
+        android:title="Kapat"
+        app:showAsAction="ifRoom"/>
+
     <item
         android:id="@+id/yardim"
         android:title="@string/yardim"
         app:showAsAction="ifRoom"
         android:icon="@android:drawable/ic_menu_help"/>
-    <item
-        android:id="@+id/yeni_konu"
-        android:title="yeni konu"
-        app:showAsAction="ifRoom"/>
-
-    <item
-        android:id="@+id/cikis"
-        android:title="Çıkış"
-        app:showAsAction="ifRoom"/>
-
 </menu>

@@ -101,7 +101,6 @@ public class DetayActivity extends AppCompatActivity {
                 }
                 break;
             case R.id.cikis:
-                ParseUser.logOut();
                 System.exit(0);
                 break;
         }

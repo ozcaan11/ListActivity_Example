@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.parse.LogOutCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
@@ -70,22 +71,27 @@ public class YeniKonuActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_application,menu);
+        getMenuInflater().inflate(R.menu.menu_yeni_konu,menu);
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
-            case R.id.yardim:
-                Toast.makeText(YeniKonuActivity.this, "Help sonra yapılacaktır", Toast.LENGTH_SHORT).show();
-            case R.id.yeni_konu:
-                Toast.makeText(YeniKonuActivity.this, "Yeni konu ekleyin lütfen ", Toast.LENGTH_SHORT).show();
-            case R.id.cikis:
-                ParseUser.logOut();
-                Toast.makeText(YeniKonuActivity.this, "Çıkış yapılıyor", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(this, MainMenuActivity.class));
-                System.exit(0);
+            case R.id.logout:
+                ParseUser.logOutInBackground(new LogOutCallback() {
+                    @Override
+                    public void done(ParseException e) {
+                        if (e == null) {
+                            Toast.makeText(YeniKonuActivity.this, "Çıkış yapılıyor", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(YeniKonuActivity.this, MainMenuActivity.class));
+                            System.exit(0);
+                        } else {
+                            Toast.makeText(YeniKonuActivity.this, "Bir hata oldu !1", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+                break;
         }
         return super.onOptionsItemSelected(item);
     }
