@@ -136,6 +136,8 @@ public class MainMenuActivity extends ListActivity {
     protected void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
 
-        Toast.makeText(MainMenuActivity.this, ""+position, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(MainMenuActivity.this,DetayActivity.class);
+        intent.putExtra("obje_id",mMesaj.get(position).getObjectId());
+        startActivity(intent);
     }
 }

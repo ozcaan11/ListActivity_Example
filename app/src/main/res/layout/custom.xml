@@ -15,31 +15,32 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent_content"
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:id="@+id/textView_kullanici_adi"
-        android:text="kullanıcı adı:"
-        android:textStyle="italic"
-        android:layout_marginLeft="10dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:textSize="18sp"
-        android:layout_marginTop="3dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/textView_kullanici_adi"
+            android:text="kullanıcı adı:"
+            android:textStyle="italic"
+            android:layout_marginLeft="10dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:textSize="18sp"
+            android:layout_marginTop="3dp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:id="@+id/textView_mesaj"
-        android:text="mesaj"
-        android:layout_marginLeft="0dp"
-        android:textColor="#34354d"
-        android:textSize="20sp"
-        android:layout_below="@+id/textView_kullanici_adi"
-        android:layout_alignStart="@+id/textView_kullanici_adi"
-        android:layout_marginTop="3dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/textView_mesaj"
+            android:text="mesaj"
+            android:layout_marginLeft="0dp"
+            android:textColor="#34354d"
+            android:textSize="20sp"
+            android:layout_below="@+id/textView_kullanici_adi"
+            android:layout_alignStart="@+id/textView_kullanici_adi"
+            android:layout_marginTop="3dp"
+            android:overScrollMode="never"/>
 
         <TextView
             android:layout_width="wrap_content"
