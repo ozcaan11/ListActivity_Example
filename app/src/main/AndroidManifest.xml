@@ -12,25 +12,25 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".StarterActivity">
+        <meta-data
+            android:name="com.parse.APPLICATION_ID"
+            android:value="7pNfzwVl4a9V4w407u73cOXwoaZUtAtYCp90OKxM" />
+        <meta-data
+            android:name="com.parse.CLIENT_KEY"
+            android:value="8WfrhhhQgJw8aRowazcpX3vBWOt38b1rQACnJyUS" />
+
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".YeniKonuActivity" />
+        <activity
+            android:name=".MainMenuActivity"
+            android:theme="@android:style/Theme.Holo.Light.DialogWhenLarge">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <meta-data
-            android:name="com.parse.APPLICATION_ID"
-            android:value="Your_APPLICATION_ID" />
-        <meta-data
-            android:name="com.parse.CLIENT_KEY"
-            android:value="Your_CLIENT_KEY" />
-
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".KullaniciIcinAnaMenuKayitliActivity" />
-        <activity android:name=".MainMenuActivity"
-            android:theme="@android:style/Theme.Holo.Light"/>
+        <activity android:name=".DetayActivity"/>
     </application>
 
 </manifest>
