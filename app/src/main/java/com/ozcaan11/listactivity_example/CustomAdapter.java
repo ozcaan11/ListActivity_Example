@@ -32,9 +32,9 @@ public class CustomAdapter extends ArrayAdapter<ParseObject> {
 
             holder  = new ViewHolder();
 
-            holder.kullanici_adi = (TextView)convertView.findViewById(R.id.textView_kullanici_adi);
-            holder.kullanici_mesaj = (TextView)convertView.findViewById(R.id.textView_mesaj);
-            holder.tarih = (TextView)convertView.findViewById(R.id.textView_tarih);
+            holder.kullanici_adi    = (TextView)convertView.findViewById(R.id.textView_kullanici_adi);
+            holder.kullanici_mesaj  = (TextView)convertView.findViewById(R.id.textView_mesaj);
+            /*holder.tarih          = (TextView)convertView.findViewById(R.id.textView_tarih);*/
 
             convertView.setTag(holder);
         }

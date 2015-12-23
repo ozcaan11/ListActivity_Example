@@ -24,8 +24,8 @@ public class DetayActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detay);
 
-        Intent intent = getIntent();
-        String obje_id = intent.getStringExtra("obje_id");
+        Intent intent   = getIntent();
+        String obje_id  = intent.getStringExtra("obje_id");
 
         final TextView gonderen   = (TextView) findViewById(R.id.textView_gonderen_detay);
         final TextView mesaj      = (TextView) findViewById(R.id.textView_mesaj_detay);
@@ -103,6 +103,7 @@ public class DetayActivity extends AppCompatActivity {
             case R.id.cikis:
                 ParseUser.logOut();
                 System.exit(0);
+                break;
         }
         return super.onOptionsItemSelected(item);
     }

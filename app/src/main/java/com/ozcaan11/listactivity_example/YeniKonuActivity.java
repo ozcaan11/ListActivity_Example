@@ -30,8 +30,8 @@ public class YeniKonuActivity extends AppCompatActivity {
             System.exit(0);
         }
 
-        mesaj   = (EditText)findViewById(R.id.editText_anamenu_mesaj);
-        Button gonder = (Button) findViewById(R.id.btn_anamenu_gonder);
+        mesaj           = (EditText)findViewById(R.id.editText_anamenu_mesaj);
+        Button gonder   = (Button)  findViewById(R.id.btn_anamenu_gonder);
 
         gonder.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,7 +63,6 @@ public class YeniKonuActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        //onBackPressed();
         startActivity(new Intent(this, MainMenuActivity.class));
         System.exit(0);
         super.onBackPressed();
@@ -84,7 +83,7 @@ public class YeniKonuActivity extends AppCompatActivity {
                 Toast.makeText(YeniKonuActivity.this, "Yeni konu ekleyin lütfen ", Toast.LENGTH_SHORT).show();
             case R.id.cikis:
                 ParseUser.logOut();
-                Toast.makeText(YeniKonuActivity.this, "cikis yapılıyor", Toast.LENGTH_SHORT).show();
+                Toast.makeText(YeniKonuActivity.this, "Çıkış yapılıyor", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(this, MainMenuActivity.class));
                 System.exit(0);
         }
