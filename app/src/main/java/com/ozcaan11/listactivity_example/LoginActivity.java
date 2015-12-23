@@ -20,7 +20,6 @@ import com.parse.ParseUser;
 import java.util.Calendar;
 
 public class LoginActivity extends AppCompatActivity {
-    private Button      giris_yap;
     private EditText    kullanici_adi,kullanici_sifresi;
 
     @Override
@@ -32,7 +31,7 @@ public class LoginActivity extends AppCompatActivity {
 
         kullanici_adi       = (EditText)findViewById(R.id.editText_kullaniciadi);
         kullanici_sifresi   = (EditText)findViewById(R.id.editText_sifre);
-        giris_yap           = (Button)  findViewById(R.id.btn_login_giris);
+        Button giris_yap = (Button) findViewById(R.id.btn_login_giris);
 
         giris_yap.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,13 +46,12 @@ public class LoginActivity extends AppCompatActivity {
                             Toast.makeText(LoginActivity.this, "Başarılı", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(LoginActivity.this, KullaniciIcinAnaMenuKayitliActivity.class);
                             startActivity(intent);
+                            System.exit(0);
                         }
                     }
                 });
             }
         });
-
-
     }
 
     @Override
@@ -75,4 +73,10 @@ public class LoginActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(this,MainMenuActivity.class));
+        System.exit(0);
+        super.onBackPressed();
+    }
 }

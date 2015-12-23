@@ -27,47 +27,54 @@ import java.util.Locale;
 public class KullaniciIcinAnaMenuKayitliActivity extends AppCompatActivity {
 
     private EditText    mesaj;
-    private Button      gonder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kullanici_icin_ana_menu_kayitli);
 
-       /* if (ParseUser.getCurrentUser() == null){
+        if (ParseUser.getCurrentUser() == null){
             Intent intent = new Intent(KullaniciIcinAnaMenuKayitliActivity.this,LoginActivity.class);
             startActivity(intent);
-        }*/
+            System.exit(0);
+        }
 
         mesaj   = (EditText)findViewById(R.id.editText_anamenu_mesaj);
-        gonder  = (Button)  findViewById(R.id.btn_anamenu_gonder);
+        Button gonder = (Button) findViewById(R.id.btn_anamenu_gonder);
 
         gonder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ParseObject parseObject = new ParseObject("Mesaj");
-                parseObject.put("mesaj",mesaj.getText().toString());
-                parseObject.put("kullanici", ParseUser.getCurrentUser().getUsername());
-                
-                parseObject.saveInBackground(new SaveCallback() {
-                    @Override
-                    public void done(ParseException e) {
-                        if (e == null) {
-                            Toast.makeText(KullaniciIcinAnaMenuKayitliActivity.this, "İşlem başarıyla gerçekleşti !", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(KullaniciIcinAnaMenuKayitliActivity.this, MainMenuActivity.class);
-                            startActivity(intent);
-                        } else {
-                            Toast.makeText(KullaniciIcinAnaMenuKayitliActivity.this, "Hata " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                if(mesaj.getText() != null) {
+                    final ParseObject parseObject = new ParseObject("Mesaj");
+                    parseObject.put("mesaj", mesaj.getText().toString());
+                    parseObject.put("kullanici", ParseUser.getCurrentUser().getUsername());
+
+                    parseObject.saveInBackground(new SaveCallback() {
+                        @Override
+                        public void done(ParseException e) {
+                            if (e == null) {
+                                Toast.makeText(KullaniciIcinAnaMenuKayitliActivity.this, "İşlem başarıyla gerçekleşti !", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(KullaniciIcinAnaMenuKayitliActivity.this, MainMenuActivity.class));
+                                System.exit(0);
+                            } else {
+                                Toast.makeText(KullaniciIcinAnaMenuKayitliActivity.this, "Hata " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                            }
                         }
-                    }
-                });
+                    });
+                }
+                else{
+                    Toast.makeText(KullaniciIcinAnaMenuKayitliActivity.this, "Göndereceğiniz mesaj boş olamaz !!", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
 
     @Override
     public void onBackPressed() {
+        //onBackPressed();
         startActivity(new Intent(this, MainMenuActivity.class));
+        System.exit(0);
         super.onBackPressed();
     }
 
@@ -82,11 +89,15 @@ public class KullaniciIcinAnaMenuKayitliActivity extends AppCompatActivity {
         switch (item.getItemId()){
             case R.id.yardim:
                 Toast.makeText(KullaniciIcinAnaMenuKayitliActivity.this, "Help sonra yapılacaktır", Toast.LENGTH_SHORT).show();
+            case R.id.yeni_konu:
+                Toast.makeText(KullaniciIcinAnaMenuKayitliActivity.this, "Yeni konu ekleyin lütfen ", Toast.LENGTH_SHORT).show();
             case R.id.cikis:
                 ParseUser.logOut();
                 Toast.makeText(KullaniciIcinAnaMenuKayitliActivity.this, "cikis yapılıyor", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(this,MainMenuActivity.class));
+                startActivity(new Intent(this, MainMenuActivity.class));
+                System.exit(0);
         }
         return super.onOptionsItemSelected(item);
     }
+
 }

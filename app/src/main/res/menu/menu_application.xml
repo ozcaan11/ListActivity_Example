@@ -5,12 +5,12 @@
     <item
         android:id="@+id/yardim"
         android:title="@string/yardim"
-        app:showAsAction="never"
+        app:showAsAction="ifRoom"
         android:icon="@android:drawable/ic_menu_help"/>
     <item
         android:id="@+id/yeni_konu"
-        android:title="yeni konu"
-        app:showAsAction="never"/>
+        android:title="yeni konu ekle"
+        app:showAsAction="ifRoom"/>
 
     <item
         android:id="@+id/cikis"
