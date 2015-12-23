@@ -3,7 +3,6 @@ package com.ozcaan11.listactivity_example;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,12 +11,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.parse.LogInCallback;
-import com.parse.Parse;
 import com.parse.ParseException;
-import com.parse.ParseObject;
 import com.parse.ParseUser;
-
-import java.util.Calendar;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText    kullanici_adi,kullanici_sifresi;
@@ -27,11 +22,9 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        //Parse.initialize(this);
-
         kullanici_adi       = (EditText)findViewById(R.id.editText_kullaniciadi);
         kullanici_sifresi   = (EditText)findViewById(R.id.editText_sifre);
-        Button giris_yap = (Button) findViewById(R.id.btn_login_giris);
+        Button giris_yap    = (Button)  findViewById(R.id.btn_login_giris);
 
         giris_yap.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,7 +37,7 @@ public class LoginActivity extends AppCompatActivity {
                         } else {
                             ///intents
                             Toast.makeText(LoginActivity.this, "Başarılı", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(LoginActivity.this, KullaniciIcinAnaMenuKayitliActivity.class);
+                            Intent intent = new Intent(LoginActivity.this, YeniKonuActivity.class);
                             startActivity(intent);
                             System.exit(0);
                         }

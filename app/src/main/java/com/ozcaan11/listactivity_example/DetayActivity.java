@@ -1,10 +1,8 @@
 package com.ozcaan11.listactivity_example;
 
 import android.app.AlertDialog;
-import android.app.TaskStackBuilder;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -97,7 +95,7 @@ public class DetayActivity extends AppCompatActivity {
                     YeniKonu();
                 }
                 else {
-                    Intent intent = new Intent(DetayActivity.this,KullaniciIcinAnaMenuKayitliActivity.class);
+                    Intent intent = new Intent(DetayActivity.this,YeniKonuActivity.class);
                     startActivity(intent);
                     System.exit(0);
                 }
